@@ -1,0 +1,10 @@
+# Python bytecode cache directories (currently present)
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE files (IntelliJ IDEA directory exists)
+.idea/
+
+# Project specific files
+file.json
