@@ -1,4 +1,4 @@
-# Python bytecode cache directories (currently present)
+# Python becode cache directories (currently present)
 __pycache__/
 *.pyc
 *.pyo
