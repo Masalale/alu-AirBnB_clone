@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 """BaseModel module for AirBnB clone project"""
+#!/usr/bin/python3
+"""BaseModel module"""
 
+
+class BaseModel:
+    """BaseModel class that defines common attributes/methods for other classes"""
+
+    def save(self):
+        """Save method that returns OK"""
+        return "OK"
 import uuid
 from datetime import datetime
 import models
