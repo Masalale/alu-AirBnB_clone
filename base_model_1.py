@@ -3,7 +3,6 @@
 from models.base_model import BaseModel
 # Create a BaseModel instance
 bm = BaseModel()
-
 # Test the save method
 bm.save()
 
