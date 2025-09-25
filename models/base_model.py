@@ -1,10 +1,8 @@
 #!/usr/bin/python3
 """BaseModel module for AirBnB clone project"""
-#!/usr/bin/python3
-"""BaseModel module"""
+
 import uuid
 from datetime import datetime
-from models import storage
 
 
 class BaseModel:
@@ -24,7 +22,8 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            storage.new(self)
+            import models
+            models.storage.new(self)
 
     def __str__(self):
         """String representation of BaseModel"""
@@ -33,8 +32,8 @@ class BaseModel:
     def save(self):
         """Updates updated_at and saves to storage"""
         self.updated_at = datetime.now()
-        storage.save()
-        return "OK"
+        import models
+        models.storage.save()
 
     def to_dict(self):
         """Returns dictionary representation of BaseModel"""
