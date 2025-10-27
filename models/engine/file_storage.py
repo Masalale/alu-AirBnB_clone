@@ -40,9 +40,8 @@ class FileStorage:
 
         The key format is <class name>.<id>.
         """
-        key = (
-            f"{obj.__class__.__name__}.{obj.id}"
-        )
+        key = f"{obj.__class__.__name__}.{obj.id}"
+        # E701 fix: split if needed
         FileStorage.__objects[key] = obj
 
     def save(self) -> None:
