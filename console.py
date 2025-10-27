@@ -15,7 +15,7 @@ from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """Command interpreter for AirBnB clone"""
-    
+
     prompt = "(hbnb) "
     __classes = {
         "BaseModel": BaseModel,
@@ -24,7 +24,7 @@ class HBNBCommand(cmd.Cmd):
         "State": State,
         "City": City,
         "Amenity": Amenity,
-        "Review": Review
+        "Review": Review,
     }
 
     def do_quit(self, arg):
@@ -45,11 +45,11 @@ class HBNBCommand(cmd.Cmd):
         if not arg:
             print("** class name missing **")
             return
-        
+
         if arg not in self.__classes:
             print("** class doesn't exist **")
             return
-        
+
         obj = self.__classes[arg]()
         obj.save()
         print(obj.id)
@@ -60,21 +60,21 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         if args[0] not in self.__classes:
             print("** class doesn't exist **")
             return
-        
+
         if len(args) < 2:
             print("** instance id missing **")
             return
-        
+
         key = f"{args[0]}.{args[1]}"
         objects = storage.all()
         if key not in objects:
             print("** no instance found **")
             return
-        
+
         print(objects[key])
 
     def do_destroy(self, arg):
@@ -83,21 +83,21 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         if args[0] not in self.__classes:
             print("** class doesn't exist **")
             return
-        
+
         if len(args) < 2:
             print("** instance id missing **")
             return
-        
+
         key = f"{args[0]}.{args[1]}"
         objects = storage.all()
         if key not in objects:
             print("** no instance found **")
             return
-        
+
         del objects[key]
         storage.save()
 
@@ -105,7 +105,7 @@ class HBNBCommand(cmd.Cmd):
         """Print all string representations of instances"""
         objects = storage.all()
         result = []
-        
+
         if not arg:
             for obj in objects.values():
                 result.append(str(obj))
@@ -113,11 +113,11 @@ class HBNBCommand(cmd.Cmd):
             if arg not in self.__classes:
                 print("** class doesn't exist **")
                 return
-            
+
             for key, obj in objects.items():
                 if key.startswith(arg):
                     result.append(str(obj))
-        
+
         print(result)
 
     def do_update(self, arg):
@@ -126,33 +126,33 @@ class HBNBCommand(cmd.Cmd):
         if not args:
             print("** class name missing **")
             return
-        
+
         if args[0] not in self.__classes:
             print("** class doesn't exist **")
             return
-        
+
         if len(args) < 2:
             print("** instance id missing **")
             return
-        
+
         key = f"{args[0]}.{args[1]}"
         objects = storage.all()
         if key not in objects:
             print("** no instance found **")
             return
-        
+
         if len(args) < 3:
             print("** attribute name missing **")
             return
-        
+
         if len(args) < 4:
             print("** value missing **")
             return
-        
+
         obj = objects[key]
         attr_name = args[2]
         attr_value = args[3].strip('"')
-        
+
         # Try to cast the value to the appropriate type
         if hasattr(obj, attr_name):
             attr_type = type(getattr(obj, attr_name))
@@ -169,7 +169,7 @@ class HBNBCommand(cmd.Cmd):
                     attr_value = float(attr_value)
                 except ValueError:
                     pass  # Keep as string
-        
+
         setattr(obj, attr_name, attr_value)
         obj.save()
 

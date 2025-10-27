@@ -28,7 +28,7 @@ class TestPlace(unittest.TestCase):
         self.assertTrue(hasattr(place, 'latitude'))
         self.assertTrue(hasattr(place, 'longitude'))
         self.assertTrue(hasattr(place, 'amenity_ids'))
-        
+
         self.assertEqual(place.city_id, "")
         self.assertEqual(place.user_id, "")
         self.assertEqual(place.name, "")
@@ -46,8 +46,8 @@ class TestPlace(unittest.TestCase):
         place = Place()
         place.name = "Test Place"
         place.number_rooms = 3
-        place.latitude = 37.7749
-        
+    place.latitude = 37.7749
+
         self.assertEqual(place.name, "Test Place")
         self.assertEqual(place.number_rooms, 3)
         self.assertEqual(place.latitude, 37.7749)

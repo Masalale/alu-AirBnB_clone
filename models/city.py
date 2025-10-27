@@ -5,7 +5,7 @@ from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """City class for AirBnB clone"""
+    """City class for AirBnB clone."""
 
     state_id = ""
     name = ""

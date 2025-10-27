@@ -49,7 +49,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.new(obj)
         self.storage.save()
         self.assertTrue(os.path.exists("file.json"))
-        
+
         with open("file.json", 'r') as f:
             data = json.load(f)
         key = f"BaseModel.{obj.id}"
@@ -59,13 +59,12 @@ class TestFileStorage(unittest.TestCase):
         """Test reload method loads objects from JSON file"""
         obj = BaseModel()
         self.storage.new(obj)
-        self.storage.save()
-        
+    self.storage.save()
         # Clear objects and reload
         self.storage._FileStorage__objects = {}
-        self.storage.reload()
-        
-        key = f"BaseModel.{obj.id}"
+    self.storage.reload()
+
+    key = f"BaseModel.{obj.id}"
         self.assertIn(key, self.storage.all())
         reloaded_obj = self.storage.all()[key]
         self.assertEqual(reloaded_obj.id, obj.id)
@@ -79,8 +78,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_storage_with_different_classes(self):
         """Test storage works with all model classes"""
-        classes = [BaseModel, User, Place, State, City, Amenity, Review]
-        
+    classes = [BaseModel, User, Place, State, City, Amenity, Review]
         for cls in classes:
             obj = cls()
             self.storage.new(obj)
