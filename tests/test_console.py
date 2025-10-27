@@ -42,7 +42,8 @@ class TestConsole(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as f:
             self.console.onecmd("help")
             output = f.getvalue()
-            # Just check that the command runs without error and produces some output
+            # Just check that the command runs without error
+            # and produces some output
             self.assertIsNotNone(output)
 
     def test_quit_command(self):
@@ -210,7 +211,10 @@ class TestConsole(unittest.TestCase):
         obj.save()
         with patch('sys.stdout', new=StringIO()) as f:
             self.console.onecmd(f"update BaseModel {obj.id}")
-            self.assertEqual(f.getvalue().strip(), "** attribute name missing **")
+            self.assertEqual(
+                f.getvalue().strip(),
+                "** attribute name missing **"
+            )
 
     def test_update_command_no_value(self):
         """Test update command without attribute value"""
