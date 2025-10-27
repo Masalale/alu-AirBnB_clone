@@ -3,4 +3,5 @@
 
 class BaseModel:
     def save(self):
+        print("OK")
         return "OK"
