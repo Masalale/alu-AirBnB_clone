@@ -29,9 +29,7 @@ class FileStorage:
     """
 
     __file_path = "file.json"
-    __objects: Dict[str, object] = {
-        
-    }
+    __objects: Dict[str, object] = {}
 
     def all(self) -> Dict[str, object]:
         """Return the dictionary of stored objects."""
@@ -43,7 +41,6 @@ class FileStorage:
         The key format is <class name>.<id>.
         """
         key = f"{obj.__class__.__name__}.{obj.id}"
-        # E701 fix: split if needed
         FileStorage.__objects[key] = obj
 
     def save(self) -> None:
