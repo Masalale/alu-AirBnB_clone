@@ -78,7 +78,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_storage_with_different_classes(self):
         """Test storage works with all model classes"""
-    classes = [BaseModel, User, Place, State, City, Amenity, Review]
+        classes = [BaseModel, User, Place, State, City, Amenity, Review]
         for cls in classes:
             obj = cls()
             self.storage.new(obj)
