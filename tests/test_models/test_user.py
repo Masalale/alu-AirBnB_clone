@@ -33,7 +33,7 @@ class TestUser(unittest.TestCase):
         user.email = "test@example.com"
         user.password = "password123"
         user.first_name = "John"
-    user.last_name = "Doe"
+        user.last_name = "Doe"
 
         self.assertEqual(user.email, "test@example.com")
         self.assertEqual(user.password, "password123")
