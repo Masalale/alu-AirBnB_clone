@@ -59,12 +59,12 @@ class TestFileStorage(unittest.TestCase):
         """Test reload method loads objects from JSON file"""
         obj = BaseModel()
         self.storage.new(obj)
-    self.storage.save()
+        self.storage.save()
         # Clear objects and reload
         self.storage._FileStorage__objects = {}
-    self.storage.reload()
+        self.storage.reload()
 
-    key = f"BaseModel.{obj.id}"
+        key = f"BaseModel.{obj.id}"
         self.assertIn(key, self.storage.all())
         reloaded_obj = self.storage.all()[key]
         self.assertEqual(reloaded_obj.id, obj.id)

@@ -46,7 +46,7 @@ class TestPlace(unittest.TestCase):
         place = Place()
         place.name = "Test Place"
         place.number_rooms = 3
-    place.latitude = 37.7749
+        place.latitude = 37.7749
 
         self.assertEqual(place.name, "Test Place")
         self.assertEqual(place.number_rooms, 3)

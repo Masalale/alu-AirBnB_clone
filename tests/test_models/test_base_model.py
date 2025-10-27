@@ -33,7 +33,7 @@ class TestBaseModel(unittest.TestCase):
     # created_at and updated_at should be very close
     # but not necessarily equal
     time_diff = abs((model.created_at - model.updated_at).total_seconds())
-        self.assertLess(time_diff, 1.0)  # Less than 1 second difference
+    self.assertLess(time_diff, 1.0)  # Less than 1 second difference
 
     def test_init_with_kwargs(self):
         """Test BaseModel initialization with kwargs"""
