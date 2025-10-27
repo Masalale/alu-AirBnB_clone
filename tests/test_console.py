@@ -224,6 +224,5 @@ class TestConsole(unittest.TestCase):
             self.console.onecmd(f"update BaseModel {obj.id} name")
             self.assertEqual(f.getvalue().strip(), "** value missing **")
 
-
 if __name__ == '__main__':
     unittest.main()
